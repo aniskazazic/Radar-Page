@@ -68,7 +68,7 @@
         </header>
 
         <main class="main-content">
-            <!-- Mesto za sliku -->
+            <!-- Mjesto za sliku -->
             <div id="radarImage">
                 <img src="Screenshot 2024-12-12 170552.png" alt="Radar Image" id="radarImageDisplay">
             </div>
@@ -103,20 +103,20 @@
     import { getDatabase, ref, query, orderByKey, limitToLast, onValue } from "https://www.gstatic.com/firebasejs/9.22.2/firebase-database.js";
 
     const firebaseConfig = {
-        apiKey: "AIzaSyCt-eiY9MbjREq2DPevXE-gohg2ovDpFAI",
+        apiKey: "api_key",
         authDomain: "radar-22202.firebaseapp.com",
-        databaseURL: "https://radar-22202-default-rtdb.europe-west1.firebasedatabase.app/",
-        projectId: "radar-22202",
-        storageBucket: "radar-22202.appspot.com",
-        messagingSenderId: "110183934919515858618",
-        appId: "1:110183934919515858618:web:bb2456f17d4a4f939ac4f5"
+        databaseURL: "database_url",
+        projectId: "projectId",
+        storageBucket: "storageBucket",
+        messagingSenderId: "messagingSenderId",
+        appId: "appId"
     };
 
     const app = initializeApp(firebaseConfig);
     const auth = getAuth();
     const database = getDatabase(app);
 
-    signInWithEmailAndPassword(auth, "aniskazazic3@gmail.com", "anisanis")
+    signInWithEmailAndPassword(auth, "gmail", "password")
         .then(() => {
             console.log("Successfully signed in");
             loadLatestDistanceData();
@@ -137,9 +137,9 @@
 
                 animateDistance(latestDistance);
 
-                // Postavljanje trenutnog vremena u animiranoj formi
+
                 const currentTime = new Date();
-                animateDetectedTime(currentTime);  // Animira vreme detekcije
+                animateDetectedTime(currentTime);
             }
         });
     }
@@ -165,7 +165,7 @@
     const detectedTimeElement = document.getElementById('detectedTime');
     const currentTime = detectedTimeElement.value ? new Date(detectedTimeElement.value) : new Date();
     
-    // Ako vreme nije validno, postavi trenutni datum kao početnu tačku
+
     const startTime = currentTime instanceof Date && !isNaN(currentTime) ? currentTime.getTime() : new Date().getTime();
     const endTime = newTime.getTime();
     const step = (endTime - startTime) / 20;
@@ -180,7 +180,7 @@
             detectedTimeElement.value = newTime.toLocaleTimeString([], {hour: '2-digit', minute: '2-digit', second: '2-digit'});
             clearInterval(interval);
         }
-    }, 50);  // Brzina animacije (50 ms za svaki korak)
+    }, 50);
 }
 
 

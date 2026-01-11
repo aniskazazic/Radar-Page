@@ -87,21 +87,21 @@
     </div>
 
     <script>
-        const correctEmail = "aniskazazic3@gmail.com";
-        const correctPassword = "anisanis";
+        const correctEmail = "gmail";
+        const correctPassword = "password";
 
         document.getElementById('loginForm').addEventListener('submit', function(event) {
-            event.preventDefault(); // Sprečava ponovno učitavanje stranice
+            event.preventDefault();
 
             const email = document.getElementById('email').value;
             const password = document.getElementById('password').value;
             const errorMessage = document.getElementById('errorMessage');
 
             if (email === correctEmail && password === correctPassword) {
-                // Ako su podaci ispravni, preusmjeri na page.html
+
                 window.location.href = 'page.html';
             } else {
-                // Ako nisu, prikaži poruku o grešci
+
                 errorMessage.textContent = "Netačan email ili šifra. Pokušajte ponovo.";
             }
         });
